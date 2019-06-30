@@ -1,6 +1,6 @@
 def rotate(given_array, n):
     for i in range(n // 2):
-        points = init_four_point(i, n)
+        points = init_four_points(i, n)
         swap(given_array, points)
         for j in range(n - 2 - (i * 2)):
             rotate_four_points(points)
@@ -9,7 +9,7 @@ def rotate(given_array, n):
     return given_array
 
 
-def init_four_point(i, n):
+def init_four_points(i, n):
     return [i, i], [i, n - (i + 1)], [n - (i + 1), n - (i + 1)], [n - (i + 1), i]
 
 
@@ -27,7 +27,7 @@ def swap(array, points):
         tmp = array[row][col]
         array[row][col] = prev
         prev = tmp
-        
+
     array[points[0][0]][points[0][1]] = prev
 
 
